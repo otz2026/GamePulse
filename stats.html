@@ -1,79 +1,55 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GamePulse - Статистика</title>
+  <title>GamePulse - Stats</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    .stats-container {
-      max-width: 800px;
-      width: 100%;
-    }
-    canvas {
-      margin: 20px 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #1A1A1A;
-      border-radius: 10px;
-    }
-    th, td {
-      padding: 15px;
-      text-align: left;
-      border-bottom: 1px solid #2A2A2A;
-    }
-    th {
-      color: #00DDEB;
-    }
-  </style>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"></script>
+  <script type="module" src="js/firebase.js"></script>
 </head>
-<body>
-  <nav>
-    <div class="logo">GamePulse</div>
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="profile.html">Профиль</a></li>
-      <li><a href="stats.html">Статистика</a></li>
-      <li><a href="login.html">Вход</a></li>
-    </ul>
-  </nav>
-
-  <section>
-    <h1>Твоя статистика в CS 2</h1>
-    <div class="stats-container">
-      <canvas id="kdChart"></canvas>
-      <table>
-        <tr>
-          <th>Дата</th>
-          <th>Карта</th>
-          <th>K/D</th>
-          <th>Результат</th>
-        </tr>
-        <tr>
-          <td>25.04.2025</td>
-          <td>de_mirage</td>
-          <td>2.1</td>
-          <td>Победа</td>
-        </tr>
-        <tr>
-          <td>24.04.2025</td>
-          <td>de_dust2</td>
-          <td>1.5</td>
-          <td>Поражение</td>
-        </tr>
-      </table>
+<body class="bg-gray-900 text-white font-inter">
+  <nav class="bg-gray-800 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-orbitron">GamePulse</h1>
+      <div class="space-x-4">
+        <a href="index.html" class="hover:text-cyan-400">Home</a>
+        <a href="profile.html" class="hover:text-cyan-400">Profile</a>
+        <a href="stats.html" class="hover:text-cyan-400">Stats</a>
+        <a href="friends.html" class="hover:text-cyan-400">Friends</a>
+        <a href="login.html" class="hover:text-cyan-400" id="logout">Logout</a>
+      </div>
     </div>
-  </section>
-
-  <footer>
-    <p>© 2025 GamePulse. Все права защищены.</p>
-  </footer>
-
-  <script src="js/stats.js"></script>
+  </nav>
+  <div class="container mx-auto py-8">
+    <h1 class="text-4xl font-orbitron text-center mb-8">Your Stats</h1>
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+      <select id="mapFilter" class="w-full p-2 mb-4 bg-gray-700 rounded">
+        <option value="">All Maps</option>
+        <option value="de_dust2">de_dust2</option>
+        <option value="de_mirage">de_mirage</option>
+        <option value="de_inferno">de_inferno</option>
+      </select>
+      <table class="w-full text-left">
+        <thead>
+          <tr class="bg-gray-700">
+            <th class="p-2">Date</th>
+            <th class="p-2">Map</th>
+            <th class="p-2">K/D</th>
+            <th class="p-2">Result</th>
+          </tr>
+        </thead>
+        <tbody id="matchesTable"></tbody>
+      </table>
+      <canvas id="kdChart" class="mt-8"></canvas>
+    </div>
+  </div>
+  <script type="module" src="js/stats.js"></script>
 </body>
 </html>
