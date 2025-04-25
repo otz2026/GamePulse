@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GamePulse - Профиль</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    .profile-card {
+      background: #1A1A1A;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 20px #00DDEB;
+    }
+    .profile-card h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #FF00FF;
+    }
+    .profile-card input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #2A2A2A;
+      border: none;
+      color: #E0E0E0;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">GamePulse</div>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="profile.html">Профиль</a></li>
+      <li><a href="stats.html">Статистика</a></li>
+      <li><a href="login.html">Вход</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h1>Твой профиль</h1>
+    <div class="profile-card">
+      <h2>Игрок: HeadshotMaster</h2>
+      <p>K/D: 1.8 | Матчи: 245</p>
+      <input type="text" placeholder="Никнейм" value="HeadshotMaster">
+      <input type="email" placeholder="Email" value="player@gamepulse.com">
+      <a href="#" class="cta-button">Сохранить</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 GamePulse. Все права защищены.</p>
+  </footer>
+
+  <script src="js/profile.js"></script>
+</body>
+</html>
