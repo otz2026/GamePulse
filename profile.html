@@ -1,62 +1,41 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GamePulse - Профиль</title>
+  <title>GamePulse - Profile</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <style>
-    .profile-card {
-      background: #1A1A1A;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 500px;
-      width: 100%;
-      box-shadow: 0 0 20px #00DDEB;
-    }
-    .profile-card h2 {
-      font-family: 'Orbitron', sans-serif;
-      color: #FF00FF;
-    }
-    .profile-card input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      background: #2A2A2A;
-      border: none;
-      color: #E0E0E0;
-      border-radius: 5px;
-    }
-  </style>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"></script>
+  <script type="module" src="js/firebase.js"></script>
 </head>
-<body>
-  <nav>
-    <div class="logo">GamePulse</div>
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="profile.html">Профиль</a></li>
-      <li><a href="stats.html">Статистика</a></li>
-      <li><a href="login.html">Вход</a></li>
-    </ul>
-  </nav>
-
-  <section>
-    <h1>Твой профиль</h1>
-    <div class="profile-card">
-      <h2>Игрок: HeadshotMaster</h2>
-      <p>K/D: 1.8 | Матчи: 245</p>
-      <input type="text" placeholder="Никнейм" value="HeadshotMaster">
-      <input type="email" placeholder="Email" value="player@gamepulse.com">
-      <a href="#" class="cta-button">Сохранить</a>
+<body class="bg-gray-900 text-white font-inter">
+  <nav class="bg-gray-800 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-orbitron">GamePulse</h1>
+      <div class="space-x-4">
+        <a href="index.html" class="hover:text-cyan-400">Home</a>
+        <a href="profile.html" class="hover:text-cyan-400">Profile</a>
+        <a href="stats.html" class="hover:text-cyan-400">Stats</a>
+        <a href="friends.html" class="hover:text-cyan-400">Friends</a>
+        <a href="login.html" class="hover:text-cyan-400" id="logout">Logout</a>
+      </div>
     </div>
-  </section>
-
-  <footer>
-    <p>© 2025 GamePulse. Все права защищены.</p>
-  </footer>
-
-  <script src="js/profile.js"></script>
+  </nav>
+  <div class="container mx-auto py-8">
+    <h1 class="text-4xl font-orbitron text-center mb-8">Your Profile</h1>
+    <div class="profile-card bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto">
+      <h2 class="text-2xl font-orbitron mb-4">Player: <span>Loading...</span></h2>
+      <p class="mb-4">K/D: <span>Loading...</span> | Matches: <span>Loading...</span></p>
+      <input type="text" placeholder="Nickname" class="w-full p-2 mb-4 bg-gray-700 rounded">
+      <input type="email" placeholder="Email" class="w-full p-2 mb-4 bg-gray-700 rounded" disabled>
+      <button class="cta-button w-full bg-cyan-500 hover:bg-cyan-600 text-white py-2 rounded">Update Profile</button>
+    </div>
+  </div>
+  <script type="module" src="js/profile.js"></script>
 </body>
 </html>
