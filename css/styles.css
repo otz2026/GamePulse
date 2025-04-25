@@ -1,125 +1,28 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  background: #121212;
-  color: #E0E0E0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 20px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-}
-
-nav .logo {
+.font-orbitron {
   font-family: 'Orbitron', sans-serif;
-  font-size: 28px;
-  color: #00DDEB;
-  text-shadow: 0 0 10px #00DDEB;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav ul li {
-  margin-left: 30px;
-}
-
-nav ul li a {
-  color: #E0E0E0;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s, text-shadow 0.3s;
-}
-
-nav ul li a:hover {
-  color: #FF00FF;
-  text-shadow: 0 0 10px #FF00FF;
-}
-
-section {
-  padding: 100px 50px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 48px;
-  color: #00DDEB;
-  text-shadow: 0 0 15px #00DDEB;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 18px;
-  max-width: 600px;
-  margin-bottom: 30px;
 }
 
 .cta-button {
-  background: linear-gradient(45deg, #00DDEB, #FF00FF);
-  color: #121212;
-  padding: 15px 30px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: 700;
-  font-family: 'Orbitron', sans-serif;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
 }
 
 .cta-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px #00DDEB;
 }
 
-footer {
-  background: #0A0A0A;
-  padding: 20px;
-  text-align: center;
-  font-size: 14px;
+nav a:hover {
+  transition: color 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  nav {
-    padding: 20px;
-    flex-direction: column;
-  }
-
-  nav ul {
-    margin-top: 10px;
-  }
-
-  nav ul li {
-    margin: 0 15px;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  section {
-    padding: 80px 20px;
-  }
+table tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
